@@ -2,7 +2,7 @@ import sys
     
 def marcar_horario(dia, horario):
     #Foi necessário abrir o caminho dentro da pasta salva para localizar o arquivo txt
-    with open("C:\\Users\\joaob\\OneDrive\\Documentos\\BarbeariaFinal\\horarios.txt", "a+", encoding="utf-8" , errors="ignore") as arquivo:
+    with open("C:\\Users\\joaob\\OneDrive\\Documentos\\BarbeariaAtual\\BarbeariaEmPython\\horarios.txt", "a+", encoding="utf-8" , errors="ignore") as arquivo:
         dias_semana = {
             '1': 'Segunda-feira',
             '2': 'Terça-feira',
@@ -34,9 +34,9 @@ def marcar_horario(dia, horario):
             print()
             arquivo.write(f'{horario_marcado}\n')
             # ... (seu código para escrever nos arquivos)
-            with open("user.txt", "a+") as arquivo1:
+            with open("C:\\Users\\joaob\\OneDrive\\Documentos\\BarbeariaAtual\\BarbeariaEmPython\\user.txt", "a+") as arquivo1:
                 arquivo1.write(f'{dia_escolhido}:{horario_escolhido}\n')
-            with open('horariosIndisponiveis.txt', 'a+', encoding="utf-8" , errors="ignore") as arquivo2:
+            with open('C:\\Users\\joaob\OneDrive\\Documentos\\BarbeariaAtual\\BarbeariaEmPython\\horariosIndisponiveis.txt', 'a+', encoding="utf-8" , errors="ignore") as arquivo2:
                 arquivo2.write(f'O horário {horario_escolhido} na {dia_escolhido} está indisponível.\n')
 def remarcar():
     dia = input('''Escolha novamente o dia: 
@@ -57,7 +57,7 @@ def remarcar():
 def mostrar_hora_marcada():
     #Função para salvar as horas marcadas
     #Foi necessário abrir o caminho dentro da pasta salva para localizar o arquivo txt
-    with open('C:\\Users\\joaob\\OneDrive\\Documentos\\BarbeariaFinal\\horariosIndisponiveis.txt', 'r', encoding="utf-8" , errors="ignore") as ler:
+    with open('C:\\Users\\joaob\OneDrive\\Documentos\\BarbeariaAtual\\BarbeariaEmPython\\horariosIndisponiveis.txt', 'r', encoding="utf-8" , errors="ignore") as ler:
         visualizar = ler.readlines()
         if visualizar:
             print()
@@ -74,7 +74,7 @@ def mostrar_hora_marcada():
             print('Nenhum horário indisponível encontrado.')
 
 def register(usuario, senha):
-    with open("usuarios.txt", "a") as arquivo:
+    with open("usuarios.txt", "a+") as arquivo:
         arquivo.write(f'{usuario}:{senha}\n')  #salvar os dados separando por :
 # Função de login
 def login(usuario, senha):
@@ -92,7 +92,7 @@ def login(usuario, senha):
 #Com essa abordagem, você terá os dados de cada usuário organizados e será mais fácil ler e verificar as credenciais durante o login. Certifique-se de adaptar outras partes do código conforme necessário para trabalhar com essa nova estrutura de dados.
 
 def visualizarCliente(nome, senha):
-    with open('user.txt', 'r', encoding="utf-8" , errors="ignore") as arquivo:
+    with open('C:\\Users\\joaob\\OneDrive\\Documentos\\BarbeariaAtual\\BarbeariaEmPython\\user.txt', 'r') as arquivo:
         visualizar = arquivo.readlines()
         if (nome == 'Joao Alberto' or nome == 'Guilherme Alencar') and senha == '12345':
             if visualizar:
@@ -121,10 +121,12 @@ def servico(nome, selecionar, barber1, barber2, escolha):
 }
     if selecionar == 1:
         print(f'O cliente {nome} selecionou o serviço de {descricao_servicos.get(escolha, "Serviço não encontrado")} com o barbeiro {barber1}')
-        with open("user.txt", "a") as arquivo1:
-            arquivo1.write(f'{nome} - ') 
+        with open('C:\\Users\\joaob\\OneDrive\\Documentos\\BarbeariaAtual\\BarbeariaEmPython\\user.txt', 'a+') as arquivo1:
+            arquivo1.write(f'Cliente: {nome} com o barbeiro {barber1} na ') 
     if selecionar == 2:
         print(f'O cliente {nome} selecionou o serviço de {descricao_servicos.get(escolha, "Serviço não encontrado")} com o barbeiro: {barber2}.')
+        with open('C:\\Users\\joaob\\OneDrive\\Documentos\\BarbeariaAtual\\BarbeariaEmPython\\user.txt', 'a+') as arquivo1:
+            arquivo1.write(f'Cliente: {nome} com o barbeiro {barber2} na ') 
     else: 
         pass
     
