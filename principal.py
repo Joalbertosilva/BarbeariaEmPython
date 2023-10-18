@@ -29,7 +29,8 @@ def marcar_horario(dia, horario):
             print(f"Horário {horario_marcado} já está marcado. Escolha outro horário.")
             remarcar()
         else:
-            print('Horario marcado com sucesso. Aguardamos você.')
+            print(f'Horario:{horario_escolhido} na {dia_escolhido}')
+            print('Horario marcado com sucesso. Aguardamos você!')
             print()
             arquivo.write(f'{horario_marcado}\n')
             # ... (seu código para escrever nos arquivos)
